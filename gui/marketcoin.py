@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'marketcoin.ui'
 #
-# Created: Thu May 29 11:48:40 2014
+# Created: Thu May 29 16:29:35 2014
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -250,7 +250,7 @@ class Ui_MainWindow(object):
         self.actionAbout_Marketcoin.setObjectName("actionAbout_Marketcoin")
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(5)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
