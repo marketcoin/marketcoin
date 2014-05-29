@@ -225,7 +225,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_6">
+           <widget class="QPushButton" name="generate_payment_request">
             <property name="text">
              <string>Generate Payment Request</string>
             </property>

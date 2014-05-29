@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'marketcoin.ui'
 #
-# Created: Thu May 29 16:29:35 2014
+# Created: Thu May 29 16:31:22 2014
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -119,9 +119,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem2)
-        self.pushButton_6 = QtWidgets.QPushButton(self.tab)
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.horizontalLayout_2.addWidget(self.pushButton_6)
+        self.generate_payment_request = QtWidgets.QPushButton(self.tab)
+        self.generate_payment_request.setObjectName("generate_payment_request")
+        self.horizontalLayout_2.addWidget(self.generate_payment_request)
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem3)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
@@ -270,7 +270,7 @@ class Ui_MainWindow(object):
         self.lineEdit_8.setPlaceholderText(_translate("MainWindow", "Optional"))
         self.label_18.setText(_translate("MainWindow", "MKC"))
         self.label_3.setText(_translate("MainWindow", "Label"))
-        self.pushButton_6.setText(_translate("MainWindow", "Generate Payment Request"))
+        self.generate_payment_request.setText(_translate("MainWindow", "Generate Payment Request"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Receive"))
         self.label_6.setText(_translate("MainWindow", "Amount"))
         self.comboBox.setItemText(0, _translate("MainWindow", "BTC"))
