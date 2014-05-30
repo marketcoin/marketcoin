@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'payment_request.ui'
 #
-# Created: Thu May 29 16:49:59 2014
+# Created: Thu May 29 23:13:04 2014
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -16,6 +16,7 @@ class Ui_PaymentRequest(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(PaymentRequest)
         self.verticalLayout.setObjectName("verticalLayout")
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(PaymentRequest)
+        self.plainTextEdit_2.setReadOnly(True)
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
         self.verticalLayout.addWidget(self.plainTextEdit_2)
         self.buttonBox = QtWidgets.QDialogButtonBox(PaymentRequest)
