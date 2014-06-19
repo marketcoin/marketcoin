@@ -2,7 +2,10 @@ from gui.marketcoin import Ui_MainWindow
 from gui.payment_request import Ui_PaymentRequest
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
+import ecdsa
 import time
+import random
+import binascii
 
 # ui.setupUi(MainWindow)
 # MainWindow.show()
@@ -11,14 +14,22 @@ import time
 #  # TODO: generic state update here.
 #  print("TODO: update gui state")
 
-def show_payment_request(label=None, message=None):
-  Dialog = QtWidgets.QDialog()
-  payment_request = Ui_PaymentRequest()
-  payment_request.setupUi(Dialog)
-  Dialog.exec_()
+system_random = random.SystemRandom()
+
+def key_to_string(key):
+    return binascii.hexlify(key.to_string()).decode('utf-8')
+
+def generate_address(output: QtWidgets.QLineEdit, label: str):
+    # TODO: introduce extra entropy
+    secret = system_random.randrange(ecdsa.SECP256k1.order)
+    private_key = ecdsa.SigningKey.from_secret_exponent(secret, curve=ecdsa.SECP256k1)
+    with open("keys.txt", "ab") as f:
+        f.write(key_to_string(private_key).encode('utf-8') + b':' + label.encode('utf-8') + b'\n')
+    public_key = private_key.get_verifying_key()
+    output.setText(key_to_string(public_key))
 
 def setup_buttons(ui):
-  ui.generate_payment_request.clicked.connect(lambda: show_payment_request())
+  ui.generate_payment_request.clicked.connect(lambda: generate_address(ui.address, ui.label.text()))
 
 """
 class StateUpdater(QtCore.QThread):
