@@ -37,7 +37,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_balance">
+       <widget class="QLabel" name="balance">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
           <horstretch>0</horstretch>

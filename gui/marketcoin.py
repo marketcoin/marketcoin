@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'marketcoin.ui'
 #
-# Created: Thu Jun 19 19:51:31 2014
+# Created: Fri Jun 20 14:52:12 2014
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,14 +31,14 @@ class Ui_MainWindow(object):
         self.label_123.setFont(font)
         self.label_123.setObjectName("label_123")
         self.horizontalLayout.addWidget(self.label_123)
-        self.label_balance = QtWidgets.QLabel(self.centralwidget)
+        self.balance = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_balance.sizePolicy().hasHeightForWidth())
-        self.label_balance.setSizePolicy(sizePolicy)
-        self.label_balance.setObjectName("label_balance")
-        self.horizontalLayout.addWidget(self.label_balance)
+        sizePolicy.setHeightForWidth(self.balance.sizePolicy().hasHeightForWidth())
+        self.balance.setSizePolicy(sizePolicy)
+        self.balance.setObjectName("balance")
+        self.horizontalLayout.addWidget(self.balance)
         self.label_17 = QtWidgets.QLabel(self.centralwidget)
         self.label_17.setObjectName("label_17")
         self.horizontalLayout.addWidget(self.label_17)
@@ -284,7 +284,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Marketcoin"))
         self.label_123.setText(_translate("MainWindow", "Balance:"))
-        self.label_balance.setText(_translate("MainWindow", "12341234.12341234"))
+        self.balance.setText(_translate("MainWindow", "12341234.12341234"))
         self.label_17.setText(_translate("MainWindow", "MKC"))
         self.label_2.setText(_translate("MainWindow", "Current Block Height:"))
         self.label_19.setText(_translate("MainWindow", "Recipient"))

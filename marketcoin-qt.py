@@ -1,41 +1,41 @@
 from gui.marketcoin import Ui_MainWindow
-from gui.payment_request import Ui_PaymentRequest
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
-import ecdsa
+import time
 import wallet
-
-
-
-class TransactionTable(QtCore.QAbstractTableModel):
-
-    def headerData(self, p_int, orientation: QtCore.Qt.Orientation, int_role=None):
-        if orientation == QtCore.Qt.Horizontal and int_role == QtCore.Qt.DisplayRole:
-            return QtCore.QVariant("Column" + str(p_int))
-        return QtCore.QVariant()
-
-    def rowCount(self, QModelIndex_parent=None, *args, **kwargs):
-        return 5
-
-    def columnCount(self, QModelIndex_parent=None, *args, **kwargs):
-        return 4
-
-    def data(self, index: QtCore.QModelIndex, int_role: int=None):
-        if int_role == QtCore.Qt.DisplayRole:
-            return "Row%d, Column%d"%(index.row(), index.column())
-        return QtCore.QVariant()
 
 
 my_wallet = wallet.Wallet()
 
+
+class TransactionTable(QtCore.QAbstractTableModel):
+    COLUMNS = ['txid', 'to', 'amount']
+
+    def headerData(self, index: int, orientation: QtCore.Qt.Orientation, role: int=None):
+        if orientation == QtCore.Qt.Horizontal and role == QtCore.Qt.DisplayRole:
+            return self.COLUMNS[index]
+        return QtCore.QVariant()
+
+    def rowCount(self, parent: QtCore.QModelIndex=None, *args, **kwargs):
+        return len(my_wallet.transactions)
+
+    def columnCount(self, QModelIndex_parent=None, *args, **kwargs):
+        return len(self.COLUMNS)
+
+    def data(self, index: QtCore.QModelIndex, role: int=None):
+        if role == QtCore.Qt.DisplayRole:
+            return 'cell'
+        return QtCore.QVariant()
+
+
 def setup_buttons(ui):
-    ui.generate_payment_request.clicked.connect(lambda: ui.address.setText(my_wallet.generate_address(ui.label.text().strip())))
+    ui.generate_payment_request.clicked.connect(
+        lambda: ui.address.setText(my_wallet.generate_address(ui.label.text().strip())))
     transaction_table = TransactionTable()
     ui.transactions.setModel(transaction_table)
     ui.transactions_2.setModel(transaction_table)
 
 
-"""
 class StateUpdater(QtCore.QThread):
     def __init__(self, ui):
         super().__init__()
@@ -44,9 +44,9 @@ class StateUpdater(QtCore.QThread):
 
     def run(self):
         while True:
-            update_state(self.ui)
+            self.ui.balance.setText(str(my_wallet.balance()))
             time.sleep(2)
-"""
+
 
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()
@@ -56,7 +56,7 @@ MainWindow.show()
 
 setup_buttons(ui)
 
-#state_updater = StateUpdater(ui)
-#state_updater.start()
+state_updater = StateUpdater(ui)
+state_updater.start()
 
 sys.exit(app.exec_())

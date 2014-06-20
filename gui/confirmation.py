@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'confirmation.ui'
 #
-# Created: Thu Jun 19 19:51:30 2014
+# Created: Fri Jun 20 14:52:12 2014
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
