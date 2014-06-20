@@ -16,8 +16,29 @@ import binascii
 
 system_random = random.SystemRandom()
 
+
 def key_to_string(key):
     return binascii.hexlify(key.to_string()).decode('utf-8')
+
+
+class TransactionTable(QtCore.QAbstractTableModel):
+
+    def headerData(self, p_int, orientation: QtCore.Qt.Orientation, int_role=None):
+        if orientation == QtCore.Qt.Horizontal and int_role == QtCore.Qt.DisplayRole:
+            return QtCore.QVariant("Column" + str(p_int))
+        return QtCore.QVariant()
+
+    def rowCount(self, QModelIndex_parent=None, *args, **kwargs):
+        return 5
+
+    def columnCount(self, QModelIndex_parent=None, *args, **kwargs):
+        return 4
+
+    def data(self, index: QtCore.QModelIndex, int_role: int=None):
+        if int_role == QtCore.Qt.DisplayRole:
+            return "Row%d, Column%d"%(index.row(), index.column())
+        return QtCore.QVariant()
+
 
 def generate_address(output: QtWidgets.QLineEdit, label: str):
     # TODO: introduce extra entropy
@@ -28,8 +49,13 @@ def generate_address(output: QtWidgets.QLineEdit, label: str):
     public_key = private_key.get_verifying_key()
     output.setText(key_to_string(public_key))
 
+
 def setup_buttons(ui):
-  ui.generate_payment_request.clicked.connect(lambda: generate_address(ui.address, ui.label.text()))
+    ui.generate_payment_request.clicked.connect(lambda: generate_address(ui.address, ui.label.text()))
+    transaction_table = TransactionTable()
+    ui.transactions.setModel(transaction_table)
+    ui.transactions_2.setModel(transaction_table)
+
 
 """
 class StateUpdater(QtCore.QThread):

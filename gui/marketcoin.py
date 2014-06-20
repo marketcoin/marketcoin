@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'marketcoin.ui'
 #
-# Created: Thu Jun 19 10:59:31 2014
+# Created: Thu Jun 19 19:33:57 2014
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -92,9 +92,10 @@ class Ui_MainWindow(object):
         self.label_26 = QtWidgets.QLabel(self.tab_3)
         self.label_26.setObjectName("label_26")
         self.verticalLayout_3.addWidget(self.label_26)
-        self.tableView_2 = QtWidgets.QTableView(self.tab_3)
-        self.tableView_2.setObjectName("tableView_2")
-        self.verticalLayout_3.addWidget(self.tableView_2)
+        self.transactions_2 = QtWidgets.QTableView(self.tab_3)
+        self.transactions_2.setObjectName("transactions_2")
+        self.transactions_2.verticalHeader().setVisible(False)
+        self.verticalLayout_3.addWidget(self.transactions_2)
         self.tabWidget.addTab(self.tab_3, "")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
@@ -132,9 +133,10 @@ class Ui_MainWindow(object):
         self.label_25 = QtWidgets.QLabel(self.tab)
         self.label_25.setObjectName("label_25")
         self.verticalLayout_2.addWidget(self.label_25)
-        self.tableView = QtWidgets.QTableView(self.tab)
-        self.tableView.setObjectName("tableView")
-        self.verticalLayout_2.addWidget(self.tableView)
+        self.transactions = QtWidgets.QTableView(self.tab)
+        self.transactions.setObjectName("transactions")
+        self.transactions.verticalHeader().setVisible(False)
+        self.verticalLayout_2.addWidget(self.transactions)
         self.tabWidget.addTab(self.tab, "")
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
