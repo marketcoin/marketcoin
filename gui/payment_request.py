@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'payment_request.ui'
 #
-# Created: Thu Jun 19 19:33:57 2014
+# Created: Thu Jun 19 19:51:31 2014
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!

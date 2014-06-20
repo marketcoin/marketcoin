@@ -81,7 +81,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -159,6 +159,13 @@
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_26">
@@ -245,6 +252,13 @@
          </layout>
         </item>
         <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QLabel" name="label_25">
           <property name="text">
            <string>Transactions:</string>
@@ -277,6 +291,20 @@
           <item row="0" column="2">
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string>MKC</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_14">
+              <property name="text">
+               <string>per</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QComboBox" name="comboBox">
               <item>
                <property name="text">
@@ -298,20 +326,6 @@
                 <string>NXT</string>
                </property>
               </item>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_14">
-              <property name="text">
-               <string>per</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_10">
-              <property name="text">
-               <string>MKC</string>
-              </property>
              </widget>
             </item>
            </layout>
@@ -437,6 +451,20 @@
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_24">
+          <property name="text">
+           <string>Your past orders:</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QTableView" name="tableView_3"/>
