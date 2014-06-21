@@ -17,7 +17,6 @@ def key_to_string(key):
 
 class Wallet:
     def __init__(self):
-        self.transactions = []
         self.public_key = {}
 
         # labels, indexed on private key
@@ -55,3 +54,17 @@ class Wallet:
         for privkey, pubkey in self.public_key.items():
             ret += my_rpc.get_balance(pubkey)
         return ret
+
+    def send(self, to, amount):
+        # first check we can do it
+        ret = 0
+        for privkey, pubkey in self.public_key.items():
+            ret += my_rpc.get_balance(pubkey)
+        if ret < amount:
+            raise Exception("not enough funds")
+        for privkey, pubkey in self.public_key.items():
+            balance = my_rpc.get_balance(pubkey)
+            if balance > 0:
+                amount_from_this_addr = min(amount, balance)
+                amount -= amount_from_this_addr
+                my_rpc.broadcast_transaction(pubkey, to, amount_from_this_addr, 'ignored for now')

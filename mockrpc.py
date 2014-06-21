@@ -17,6 +17,7 @@ def get_transactions(pubkey):
     return [{'other': x, 'delta': y} for x, y in transactions[pubkey]]
 
 def broadcast_transaction(frm, to, amount, signature):
+    print(frm,to,amount,signature)
     # In marketcoin this might look something like
     # Transaction.make(sender=frm, recipient=to, amount=amount, signature=signature)
     # if it's invalid, throw an error. Encodium objects should be valid at all times.
@@ -24,11 +25,11 @@ def broadcast_transaction(frm, to, amount, signature):
     balance[to] += amount
     transactions[frm].append((to, -amount))
     transactions[to].append((frm, amount))
-
+    return True
 
 @Request.application
 def application(request):
-    # Dispatcher is dictionary {<method_name>: callable}
+     # Dispatcher is dictionary {<method_name>: callable}
     for func in [get_balance, get_transactions, broadcast_transaction]:
         dispatcher[func.__name__] = func
 

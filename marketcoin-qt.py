@@ -17,7 +17,7 @@ class TransactionTable(QtCore.QAbstractTableModel):
         return QtCore.QVariant()
 
     def rowCount(self, parent: QtCore.QModelIndex=None, *args, **kwargs):
-        return len(my_wallet.transactions)
+        return len([])
 
     def columnCount(self, QModelIndex_parent=None, *args, **kwargs):
         return len(self.COLUMNS)
@@ -27,6 +27,11 @@ class TransactionTable(QtCore.QAbstractTableModel):
             return 'cell'
         return QtCore.QVariant()
 
+def do_send(ui: Ui_MainWindow):
+    amount = int(ui.send_amount.text())
+    recipient = str(ui.recipient.text())
+    my_wallet.send(recipient, amount)
+
 
 def setup_buttons(ui):
     ui.generate_payment_request.clicked.connect(
@@ -34,6 +39,7 @@ def setup_buttons(ui):
     transaction_table = TransactionTable()
     ui.transactions.setModel(transaction_table)
     ui.transactions_2.setModel(transaction_table)
+    ui.send.clicked.connect(lambda: do_send(ui))
 
 
 class StateUpdater(QtCore.QThread):
